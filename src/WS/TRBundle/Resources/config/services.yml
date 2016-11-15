@@ -1,0 +1,4 @@
+services:
+#    wstr.example:
+#        class: WS\TRBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

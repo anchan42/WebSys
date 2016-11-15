@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Incidents list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Linestoptime</th>
+                <th>Linestarttime</th>
+                <th>Detail</th>
+                <th>Machine</th>
+                <th>Createtime</th>
+                <th>Updatetime</th>
+                <th>Subject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for incident in incidents %}
+            <tr>
+                <td><a href="{{ path('incident_show', { 'id': incident.id }) }}">{{ incident.id }}</a></td>
+                <td>{% if incident.lineStopTime %}{{ incident.lineStopTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if incident.lineStartTime %}{{ incident.lineStartTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ incident.detail }}</td>
+                <td>{{ incident.machine }}</td>
+                <td>{% if incident.createTime %}{{ incident.createTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if incident.updateTime %}{{ incident.updateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ incident.subject }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('incident_show', { 'id': incident.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('incident_edit', { 'id': incident.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('incident_new') }}">Create a new incident</a>
+        </li>
+    </ul>
+{% endblock %}

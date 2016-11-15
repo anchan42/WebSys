@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Incident</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ incident.id }}</td>
+            </tr>
+            <tr>
+                <th>Linestoptime</th>
+                <td>{% if incident.lineStopTime %}{{ incident.lineStopTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Linestarttime</th>
+                <td>{% if incident.lineStartTime %}{{ incident.lineStartTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ incident.detail }}</td>
+            </tr>
+            <tr>
+                <th>Machine</th>
+                <td>{{ incident.machine }}</td>
+            </tr>
+            <tr>
+                <th>Createtime</th>
+                <td>{% if incident.createTime %}{{ incident.createTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatetime</th>
+                <td>{% if incident.updateTime %}{{ incident.updateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ incident.subject }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('incident_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('incident_edit', { 'id': incident.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

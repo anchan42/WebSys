@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class ModelKeydate
 {
     /**
+     * @var \WS\TRBundle\Entity\ModelBike
+     * @ORM\Id
+     * @ORM\OneToOne(targetEntity="WS\TRBundle\Entity\ModelBike")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="model_code", referencedColumnName="model_code", unique=true)
+     * })
+     */
+    private $modelCode;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="P1", type="string", length=32, nullable=true)
@@ -46,18 +56,6 @@ class ModelKeydate
      * @ORM\Column(name="T2", type="string", length=32, nullable=true)
      */
     private $t2;
-
-    /**
-     * @var \WS\TRBundle\Entity\ModelBike
-     *
-     * @ORM\OneToOne(targetEntity="WS\TRBundle\Entity\ModelBike")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="model_code", referencedColumnName="model_code", unique=true)
-     * })
-     */
-    private $modelCode;
-
-
 
     /**
      * Set p1

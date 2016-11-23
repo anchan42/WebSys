@@ -2,6 +2,7 @@
 
 namespace WS\TRBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user", indexes={@ORM\Index(name="fk_user_user_idx", columns={"boss"}), @ORM\Index(name="fk_user_user_status1_idx", columns={"status"}), @ORM\Index(name="fk_user_factory1_idx", columns={"factory_id"})})
  * @ORM\Entity
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var string
@@ -19,31 +20,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password_hash", type="string", length=128, nullable=true)
-     */
-    
-    private $username;
+    protected $id;
 
     /**
      * @var string

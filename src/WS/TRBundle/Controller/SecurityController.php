@@ -21,7 +21,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class SecurityController extends Controller
 {
      /**
-     * @Route("/login", name="login")
+     * @Route("/loginII", name="login")
      */
     public function loginAction(Request $request)
     {

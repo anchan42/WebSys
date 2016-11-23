@@ -2,11 +2,11 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: symfony
+    database_name: triumph345
     database_user: root
-    database_password: null
+    database_password: all74you
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    secret: 6cb8d0d1f6eabd274d529617d77136b5847f8cf4
+    mailer_host: smtp.gmail.com
+    mailer_user: anchan42@gmail.com
+    mailer_password: 'All74You$&'
+    secret: 1f4726f4d4d895c307d1706175b578bd7985ad08
